@@ -200,8 +200,8 @@ export default function HomePage() {
           <nav className="bg-white rounded-full p-[5px] flex items-center justify-between shadow-xs">
             {/* LEFT BRANDING & NAV LINKS WITH WIDER GAPS */}
             <div className="flex items-center">
-              <Link to="/" className="w-9 h-9 sm:w-10 sm:h-10 bg-gray-900 rounded-full flex items-center justify-center text-white text-[9px] sm:text-[10px] font-bold tracking-tight shrink-0">
-                JNTU
+              <Link to="/" className="flex items-center space-x-2 shrink-0 pl-1">
+                <img src="/images/jntugv_logo.png" alt="JNTU-GV Logo" className="w-9 h-9 sm:w-10 sm:h-10 object-contain drop-shadow-xs" />
               </Link>
               <div className="hidden md:flex items-center gap-8 lg:gap-12 text-[14px] font-normal text-gray-900 ml-8 lg:ml-12">
                 {[

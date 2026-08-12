@@ -88,9 +88,7 @@ export default function AdminDashboardLayout() {
         {/* Sidebar Brand Header */}
         <div className="h-20 flex items-center px-6 border-b border-gray-200/60 bg-white/60 backdrop-blur-md">
           <Link to="/" className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 bg-gray-900 rounded-full flex items-center justify-center text-white text-[10px] font-bold tracking-tight shrink-0 shadow-xs">
-              JNTU
-            </div>
+            <img src="/images/jntugv_logo.png" alt="JNTU-GV Logo" className="w-10 h-10 object-contain drop-shadow-xs shrink-0" />
             <div className="flex flex-col leading-tight">
               <span className="font-bold text-xs text-gray-900 tracking-tight">
                 Event Report Portal

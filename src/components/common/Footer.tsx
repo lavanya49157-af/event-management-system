@@ -12,9 +12,7 @@ export default function Footer() {
           {/* BRANDING */}
           <div className="max-w-md">
             <div className="flex items-center space-x-3 mb-3">
-              <div className="w-9 h-9 bg-gray-900 text-white rounded-full flex items-center justify-center font-bold text-xs shrink-0">
-                JNTU
-              </div>
+              <img src="/images/jntugv_logo.png" alt="JNTU-GV Logo" className="w-10 h-10 object-contain drop-shadow-xs shrink-0" />
               <span className="text-base font-bold tracking-tight text-gray-900">
                 JNTU-GV Vizianagaram • Event Report And Management System
               </span>

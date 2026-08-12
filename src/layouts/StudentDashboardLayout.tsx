@@ -79,11 +79,9 @@ export default function StudentDashboardLayout() {
       <aside className="w-64 bg-white/90 backdrop-blur-xl border-r border-gray-200/80 fixed h-full z-30 flex flex-col hidden md:flex shadow-xs">
         <div className="h-20 flex items-center px-6 border-b border-gray-100">
           <Link to="/" className="flex items-center space-x-3 group">
-            <div className="w-9 h-9 bg-gray-900 rounded-full flex items-center justify-center text-white text-[9px] font-bold tracking-tight shrink-0 shadow-sm">
-              JNTU
-            </div>
+            <img src="/images/jntugv_logo.png" alt="JNTU-GV Logo" className="w-10 h-10 object-contain drop-shadow-xs shrink-0" />
             <div className="flex flex-col">
-              <span className="font-bold text-sm text-gray-900 tracking-tight">JNTU-GV ERMS</span>
+              <span className="font-bold text-sm text-gray-900 tracking-tight">JNTU-GV Portal</span>
               <span className="text-[10px] font-semibold text-gray-500">Student Portal</span>
             </div>
           </Link>
