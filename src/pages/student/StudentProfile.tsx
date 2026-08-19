@@ -21,6 +21,8 @@ export default function StudentProfile() {
     name: profile?.full_name || 'John Doe',
     email: profile?.email || 'john.doe@university.edu',
     studentId: 'STD-2023-4589',
+    course: (profile as any)?.course || 'B.Tech',
+    branch: (profile as any)?.branch || 'CSE',
     department: getFullDepartmentName((profile as any)?.department),
     semester: '6th Semester',
     joinYear: '2023',
@@ -221,6 +223,35 @@ export default function StudentProfile() {
           <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
             <h3 className="text-lg font-bold text-slate-900 mb-6">Academic Details</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Course Program</label>
+                {isEditing ? (
+                  <select className="w-full p-2.5 text-sm bg-white rounded-lg border border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm font-semibold" value={profileInfo.course} onChange={(e) => setProfileInfo({...profileInfo, course: e.target.value})}>
+                    <option value="B.Tech">B.Tech (Bachelor of Technology)</option>
+                    <option value="M.Tech">M.Tech (Master of Technology)</option>
+                    <option value="B.Pharmacy">B.Pharmacy (Bachelor of Pharmacy)</option>
+                  </select>
+                ) : (
+                  <div className="text-sm font-medium text-slate-900 p-3 bg-slate-50 rounded-lg border border-slate-100">{profileInfo.course}</div>
+                )}
+              </div>
+              <div>
+                <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Branch / Major</label>
+                {isEditing ? (
+                  <select className="w-full p-2.5 text-sm bg-white rounded-lg border border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm font-semibold" value={profileInfo.branch} onChange={(e) => setProfileInfo({...profileInfo, branch: e.target.value})}>
+                    <option value="CSE">CSE (Computer Science & Engineering)</option>
+                    <option value="ECE">ECE (Electronics & Communication)</option>
+                    <option value="EEE">EEE (Electrical & Electronics)</option>
+                    <option value="MECH">MECH (Mechanical Engineering)</option>
+                    <option value="CIVIL">CIVIL (Civil Engineering)</option>
+                    <option value="IT">IT (Information Technology)</option>
+                    <option value="AI & DS">AI & DS (Artificial Intelligence)</option>
+                    <option value="B.Pharm">B.Pharm (Pharmaceutical Sciences)</option>
+                  </select>
+                ) : (
+                  <div className="text-sm font-medium text-slate-900 p-3 bg-slate-50 rounded-lg border border-slate-100">{profileInfo.branch}</div>
+                )}
+              </div>
               <div>
                 <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Department</label>
                 {isEditing ? (

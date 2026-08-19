@@ -1,5 +1,26 @@
 export const initialEvents = [
   {
+    id: 6,
+    title: 'JNTU-GV 80th Independence Day Grand Celebration & Flag Hoisting',
+    date: 'August 15, 2026',
+    time: '08:00 AM',
+    location: 'JNTU-GV Main Campus Grounds & Administrative Block',
+    category: 'National Celebration',
+    department: 'University Administration & NSS / NCC Units',
+    departmentCode: 'ADMIN',
+    seats: '5000+',
+    registered: 3840,
+    image: '/images/independence_day_celebration.png',
+    tags: ['80th Independence Day', '15th August', 'Har Ghar Tiranga', 'Flag Hoisting', 'Patriotic Fest'],
+    aboutDetails: 'Join JNTU-GV Vizianagaram in celebrating the grand 80th Independence Day on August 15th! The national flag will be hoisted by the Hon\'ble Vice-Chancellor followed by patriotic addresses, NCC parade, NSS sapling plantation drive, cultural performances by students, and national unity celebrations across the campus.',
+    guidelines: [
+      'Flag Hoisting Ceremony begins at 08:00 AM sharp at the Main Administrative Grounds.',
+      'Traditional or formal attire is recommended for all attending students, faculty, and staff.',
+      'Cultural events, march past, and NSS tree plantation will follow the official address.',
+      'Sweet distribution and certificate distributions for active student volunteers.'
+    ]
+  },
+  {
     id: 1,
     title: 'JNTU-GV 1st Convocation Ceremony',
     date: 'July 11, 2026',
@@ -97,7 +118,15 @@ export const initialEvents = [
 export const getSharedEvents = () => {
   const stored = localStorage.getItem('shared_events');
   if (stored) {
-    return JSON.parse(stored);
+    let parsed = JSON.parse(stored);
+    const hasEv6 = parsed.some((ev: any) => ev.id === 6);
+    if (!hasEv6) {
+      parsed = [initialEvents[0], ...parsed];
+    } else {
+      parsed = parsed.map((ev: any) => (ev.id === 6 ? initialEvents[0] : ev));
+    }
+    localStorage.setItem('shared_events', JSON.stringify(parsed));
+    return parsed;
   }
   localStorage.setItem('shared_events', JSON.stringify(initialEvents));
   return initialEvents;

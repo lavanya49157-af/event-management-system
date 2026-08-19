@@ -35,7 +35,7 @@ export default function ExploreEvents() {
       </div>
 
       <div className="flex gap-2 overflow-x-auto pb-1 custom-scrollbar">
-        {['All Events', 'Conference', 'Workshop', 'Seminar', 'Competition', 'Cultural', 'Sports'].map((cat, i) => (
+        {['All Events', 'National Event', 'Conference', 'Workshop', 'Seminar', 'Competition', 'Cultural', 'Sports'].map((cat, i) => (
           <button 
             key={i} 
             onClick={() => setActiveCategory(cat)}

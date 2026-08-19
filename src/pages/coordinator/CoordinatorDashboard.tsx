@@ -24,7 +24,7 @@ export default function CoordinatorDashboard() {
       {/* Welcome Banner */}
       <div className="flex justify-between items-end">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">Good Morning, {profile?.full_name?.split(' ')[0] || 'Coordinator'} 👋</h1>
+          <h1 className="text-2xl font-bold text-slate-900">Hii, {profile?.full_name?.split(' ')[0] || 'Coordinator'} 👋</h1>
           <p className="text-slate-600 mt-1">Here's an overview of the events you're managing.</p>
         </div>
         <div className="flex gap-3">

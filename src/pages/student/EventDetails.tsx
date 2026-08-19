@@ -1,8 +1,8 @@
 import { useParams, useNavigate, Link, useLocation } from 'react-router-dom';
-import { Calendar, MapPin, Users, Clock, ArrowLeft, Tag, Info, ListChecks, CheckCircle2, Heart, X } from 'lucide-react';
+import { Calendar, MapPin, Users, Clock, ArrowLeft, Tag, Info, ListChecks, CheckCircle2, Heart, X, FileText, Download } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { getSharedEvents } from '../../data/mockEvents';
 
-// Using the same dummy data structure from ExploreEvents for demonstration
 const dummyEvents = [
   {
     id: 1,
@@ -165,6 +165,8 @@ export default function EventDetails() {
     name: '',
     college: '',
     rollNumber: '',
+    course: 'B.Tech',
+    branch: 'CSE',
     year: '1st Year',
     city: ''
   });
@@ -189,8 +191,9 @@ export default function EventDetails() {
     }
   }, [location, id]);
 
-  // Find the event by ID (convert id to number since params are strings)
-  const event = dummyEvents.find(e => e.id === Number(id));
+  // Find the event by ID from shared events or dummy fallback
+  const sharedEvents = getSharedEvents();
+  const event = sharedEvents.find((e: any) => e.id === Number(id)) || dummyEvents.find(e => e.id === Number(id));
 
   if (!event) {
     return (
@@ -318,7 +321,7 @@ export default function EventDetails() {
             </p>
             
             <div className="flex flex-wrap gap-2 mt-6">
-              {event.tags.map((tag, i) => (
+              {(event.tags || []).map((tag: any, i: number) => (
                 <span key={i} className="flex items-center text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 px-3 py-1.5 rounded-md">
                   <Tag className="h-3 w-3 mr-1.5" /> {tag}
                 </span>
@@ -333,10 +336,10 @@ export default function EventDetails() {
               <h2 className="text-xl font-bold text-slate-900">Event Schedule</h2>
             </div>
             <div className="space-y-6">
-              {event.agenda.map((item, i) => (
+              {(event.agenda || []).map((item: any, i: number) => (
                 <div key={i} className="flex gap-4 relative">
                   {/* Timeline Line */}
-                  {i !== event.agenda.length - 1 && (
+                  {i !== (event.agenda?.length || 0) - 1 && (
                     <div className="absolute left-[11px] top-6 bottom-[-24px] w-0.5 bg-slate-200"></div>
                   )}
                   <div className="w-6 h-6 rounded-full bg-indigo-100 border-2 border-white shadow-sm flex-shrink-0 z-10 flex items-center justify-center">
@@ -405,7 +408,7 @@ export default function EventDetails() {
           <div className="bg-slate-50 rounded-2xl border border-slate-200 p-6">
             <h3 className="font-bold text-slate-900 mb-4 text-lg">Rules & Guidelines</h3>
             <ul className="space-y-3">
-              {event.rules.map((rule, i) => (
+              {(event.guidelines || event.rules || []).map((rule: any, i: number) => (
                 <li key={i} className="flex gap-2 text-sm text-slate-600">
                   <div className="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0 mt-1.5"></div>
                   {rule}
@@ -476,6 +479,37 @@ export default function EventDetails() {
                   className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" 
                   placeholder="e.g. New York"
                 />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-1">Course Program</label>
+                <select
+                  value={formData.course}
+                  onChange={e => setFormData({ ...formData, course: e.target.value })}
+                  className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white text-sm font-semibold text-slate-900"
+                >
+                  <option value="B.Tech">B.Tech (Bachelor of Technology)</option>
+                  <option value="M.Tech">M.Tech (Master of Technology)</option>
+                  <option value="B.Pharmacy">B.Pharmacy (Bachelor of Pharmacy)</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-1">Branch / Major</label>
+                <select
+                  value={formData.branch}
+                  onChange={e => setFormData({ ...formData, branch: e.target.value })}
+                  className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white text-sm font-semibold text-slate-900"
+                >
+                  <option value="CSE">CSE (Computer Science & Engineering)</option>
+                  <option value="ECE">ECE (Electronics & Communication)</option>
+                  <option value="EEE">EEE (Electrical & Electronics)</option>
+                  <option value="MECH">MECH (Mechanical Engineering)</option>
+                  <option value="CIVIL">CIVIL (Civil Engineering)</option>
+                  <option value="IT">IT (Information Technology)</option>
+                  <option value="AI & DS">AI & DS (Artificial Intelligence)</option>
+                  <option value="B.Pharm">B.Pharm (Pharmaceutical Sciences)</option>
+                </select>
               </div>
 
               <div>

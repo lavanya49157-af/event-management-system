@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Mail, Lock, User, Building, ArrowRight } from 'lucide-react';
+import { Mail, Lock, User, Building, ArrowRight, GraduationCap } from 'lucide-react';
 import AuthLayout from '../../components/common/AuthLayout';
 
 const TextRoll = ({ text }: { text: string }) => (
@@ -19,6 +19,8 @@ export default function FacultyRegister() {
     fullName: '',
     email: '',
     password: '',
+    course: 'B.Tech',
+    branch: 'CSE',
     department: 'CSE'
   });
   
@@ -37,6 +39,8 @@ export default function FacultyRegister() {
         role: 'ADMIN',
         email: formData.email,
         full_name: formData.fullName,
+        course: formData.course,
+        branch: formData.branch,
         department: formData.department,
         is_active: true
       }));
@@ -87,6 +91,49 @@ export default function FacultyRegister() {
           </div>
         </div>
 
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <label className="block text-xs font-semibold text-gray-700 mb-1">Course Program</label>
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                <GraduationCap size={16} />
+              </div>
+              <select
+                value={formData.course}
+                onChange={e => setFormData({ ...formData, course: e.target.value })}
+                className="block w-full pl-9 pr-2 py-2.5 bg-gray-50/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#F26522] focus:bg-white text-xs font-medium cursor-pointer"
+              >
+                <option value="B.Tech">B.Tech</option>
+                <option value="M.Tech">M.Tech</option>
+                <option value="B.Pharmacy">B.Pharmacy</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-xs font-semibold text-gray-700 mb-1">Branch / Major</label>
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                <Building size={16} />
+              </div>
+              <select
+                value={formData.branch}
+                onChange={e => setFormData({ ...formData, branch: e.target.value, department: e.target.value })}
+                className="block w-full pl-9 pr-2 py-2.5 bg-gray-50/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#F26522] focus:bg-white text-xs font-medium cursor-pointer"
+              >
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="EEE">EEE</option>
+                <option value="MECH">MECH</option>
+                <option value="CIVIL">CIVIL</option>
+                <option value="IT">IT</option>
+                <option value="AI & DS">AI & DS</option>
+                <option value="B.Pharm">B.Pharm</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
         <div>
           <label className="block text-xs font-semibold text-gray-700 mb-1">Department</label>
           <div className="relative">
@@ -103,6 +150,7 @@ export default function FacultyRegister() {
               <option value="MECH">Mechanical Engineering</option>
               <option value="CIVIL">Civil Engineering</option>
               <option value="IT">Information Technology</option>
+              <option value="PHARM">College of Pharmaceutical Sciences</option>
             </select>
           </div>
         </div>

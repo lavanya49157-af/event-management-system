@@ -23,6 +23,12 @@ export default function HomePage() {
   // Official JNTU-GV Gallery Images for Auto-Rotating Carousel (5 Clean Official University Album Photos)
   const carouselImages = [
     {
+      src: '/images/independence_day_celebration.png',
+      title: '80th Independence Day Grand Celebration',
+      subtitle: 'August 15 Flag Hoisting, NCC Parade & Cultural Fest at JNTU-GV Main Campus',
+      tag: 'National Event'
+    },
+    {
       src: '/images/jntugv_convocation_ceremony.png',
       title: '1st Convocation Ceremony',
       subtitle: 'Jawaharlal Nehru Technological University Gurajada Vizianagaram',
@@ -64,6 +70,27 @@ export default function HomePage() {
 
   // Real JNTU-GV Vizianagaram Events & Gallery Items
   const jntugvEvents = [
+    {
+      id: 'independence-day-80',
+      title: 'JNTU-GV 80th Independence Day Grand Celebration',
+      department: 'University Administration & NSS/NCC',
+      date: 'August 15, 2026',
+      time: '08:00 AM',
+      location: 'JNTU-GV Main Campus Grounds',
+      type: 'National Celebration',
+      icon: Trophy,
+      image: '/images/independence_day_celebration.png',
+      desc: 'Grand 80th Independence Day celebrations featuring Flag Hoisting by Hon\'ble Vice-Chancellor, NCC march past, NSS sapling plantation, and student cultural performances.',
+      aboutDetails: 'Join JNTU-GV Vizianagaram in celebrating the grand 80th Independence Day on August 15th! The national flag will be hoisted by the Vice-Chancellor followed by patriotic addresses, NCC parade, NSS sapling plantation drive, student cultural showcases, and institutional merit awards.',
+      guidelines: [
+        'Flag Hoisting Ceremony begins strictly at 08:00 AM at the Main Administrative Grounds.',
+        'Traditional or formal attire recommended for all students, faculty, and staff.',
+        'Cultural performances and march past follow after Vice-Chancellor address.',
+        'Sweet distribution and certificate distribution for volunteers.'
+      ],
+      status: 'Grand Celebration',
+      badgeColor: 'bg-orange-50 text-orange-700 border-orange-100',
+    },
     {
       id: 'convocation-1st',
       title: 'JNTU-GV 1st Convocation Ceremony',

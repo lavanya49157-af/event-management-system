@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Lock, User, Building, ArrowRight } from 'lucide-react';
+import { Mail, Lock, User, Building, ArrowRight, GraduationCap } from 'lucide-react';
 import AuthLayout from '../../components/common/AuthLayout';
 
 const TextRoll = ({ text }: { text: string }) => (
@@ -17,6 +17,8 @@ export default function StudentRegister() {
     fullName: '',
     email: '',
     password: '',
+    course: 'B.Tech',
+    branch: 'CSE',
     department: 'CSE',
     year: '1st Year'
   });
@@ -36,6 +38,8 @@ export default function StudentRegister() {
         role: 'STUDENT',
         email: formData.email,
         full_name: formData.fullName,
+        course: formData.course,
+        branch: formData.branch,
         department: formData.department,
         year: formData.year,
         is_active: true
@@ -92,6 +96,53 @@ export default function StudentRegister() {
         <div className="grid grid-cols-2 gap-3">
           <div>
             <label className="block text-xs font-bold text-gray-700 mb-1 uppercase tracking-wider">
+              Course
+            </label>
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                <GraduationCap size={16} />
+              </div>
+              <select
+                value={formData.course}
+                onChange={e => setFormData({ ...formData, course: e.target.value })}
+                className="w-full pl-9 pr-2 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-xs font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:bg-white transition-all cursor-pointer"
+              >
+                <option value="B.Tech">B.Tech</option>
+                <option value="M.Tech">M.Tech</option>
+                <option value="B.Pharmacy">B.Pharmacy</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-xs font-bold text-gray-700 mb-1 uppercase tracking-wider">
+              Branch / Major
+            </label>
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                <Building size={16} />
+              </div>
+              <select
+                value={formData.branch}
+                onChange={e => setFormData({ ...formData, branch: e.target.value, department: e.target.value })}
+                className="w-full pl-9 pr-2 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-xs font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:bg-white transition-all cursor-pointer"
+              >
+                <option value="CSE">CSE (Computer Science)</option>
+                <option value="ECE">ECE (Electronics & Comm)</option>
+                <option value="EEE">EEE (Electrical & Electronics)</option>
+                <option value="MECH">MECH (Mechanical Engg)</option>
+                <option value="CIVIL">CIVIL (Civil Engg)</option>
+                <option value="IT">IT (Info Tech)</option>
+                <option value="AI & DS">AI & DS (Artificial Intel)</option>
+                <option value="B.Pharm">B.Pharm (Pharmacy)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <label className="block text-xs font-bold text-gray-700 mb-1 uppercase tracking-wider">
               Department
             </label>
             <div className="relative">
@@ -103,11 +154,13 @@ export default function StudentRegister() {
                 onChange={e => setFormData({ ...formData, department: e.target.value })}
                 className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-xs font-semibold text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:bg-white transition-all"
               >
-                <option value="CSE">CSE</option>
-                <option value="ECE">ECE</option>
-                <option value="MECH">MECH</option>
-                <option value="CIVIL">CIVIL</option>
-                <option value="IT">IT</option>
+                <option value="CSE">CSE Dept</option>
+                <option value="ECE">ECE Dept</option>
+                <option value="EEE">EEE Dept</option>
+                <option value="MECH">MECH Dept</option>
+                <option value="CIVIL">CIVIL Dept</option>
+                <option value="IT">IT Dept</option>
+                <option value="PHARM">Pharmaceutical Sciences</option>
               </select>
             </div>
           </div>

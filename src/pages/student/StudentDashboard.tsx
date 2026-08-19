@@ -65,7 +65,7 @@ export default function StudentDashboard() {
             </span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-gray-900">
-            Good Morning, {profile?.full_name?.split(' ')[0] || 'Student'} 👋
+            Hii, {profile?.full_name?.split(' ')[0] || 'Student'} 👋
           </h1>
           <p className="text-xs sm:text-sm text-gray-600 mt-1.5 font-normal max-w-2xl leading-relaxed">
             Centralized campus event management, automated report generation, digital certificates, and institutional achievements.

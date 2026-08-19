@@ -25,7 +25,7 @@ export default function AdminDashboard() {
             </span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">
-            Good Morning, {profile?.full_name?.split(' ')[0] || 'Faculty'} 👋
+            Hii, {profile?.full_name?.split(' ')[0] || 'Faculty'} 👋
           </h1>
           <p className="text-xs sm:text-sm text-gray-600 mt-1 font-normal">
             Departmental event management, NBA & NAAC compliance archiving, and student participant tracking.
