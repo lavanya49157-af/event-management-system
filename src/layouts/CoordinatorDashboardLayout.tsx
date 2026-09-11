@@ -209,6 +209,11 @@ export default function CoordinatorDashboardLayout() {
         <main className="flex-1 p-5 sm:p-8 relative z-10">
           <Outlet />
         </main>
+
+        {/* Developer Credit Footer */}
+        <footer className="py-4 text-center text-xs font-semibold text-gray-600 bg-white/40 backdrop-blur-md border-t border-white/40 z-10 relative">
+          Developed by Yaindum Lavanya and Yelamanchili Naveen
+        </footer>
       </div>
 
       <UserProfileModal 

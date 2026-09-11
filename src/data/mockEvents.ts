@@ -112,6 +112,30 @@ export const initialEvents = [
     guidelines: [
       'Targeted for 3rd and 4th year ECE/EEE students.'
     ]
+  },
+  {
+    id: 1001,
+    title: 'SIH Internal Hackathon 2026',
+    date: '16-17 September 2026',
+    time: '09:00 AM',
+    location: 'JNTU-GV, Vizianagaram',
+    category: 'Hackathon',
+    department: 'Student Coordinators',
+    departmentCode: 'IT',
+    seats: '500',
+    registered: 0,
+    image: '/images/jntugv_cse_symposium.png',
+    tags: ['SIH 2026', 'Hackathon', 'Innovation'],
+    aboutDetails: 'SIH 2026 is here! Got an idea that can make a difference? 💡 Join us for the SIH Internal Hackathon 2026 at JNTU-GV, Vizianagaram and turn your idea into a real solution! 📅 16–17 September 2026 👥 Team up. Build. Innovate. 🔗 Register here: https://forms.gle/478jCLGpPC1gJfkT7',
+    description: 'SIH 2026 is here! Got an idea that can make a difference? 💡 Join us for the SIH Internal Hackathon 2026 at JNTU-GV, Vizianagaram and turn your idea into a real solution! 📅 16–17 September 2026 👥 Team up. Build. Innovate. 🔗 Register here: https://forms.gle/478jCLGpPC1gJfkT7',
+    guidelines: [
+      'Team Size: 4 - 6 Members.',
+      'At least one Female Member is mandatory.',
+      'Each team must have one Mentor.',
+      'Choose 1-2 Problem Statements from the official SIH portal.',
+      'Innovative Original Ideas are also welcome.',
+      'Register using the form link provided in the details.'
+    ]
   }
 ];
 
@@ -119,12 +143,18 @@ export const getSharedEvents = () => {
   const stored = localStorage.getItem('shared_events');
   if (stored) {
     let parsed = JSON.parse(stored);
-    const hasEv6 = parsed.some((ev: any) => ev.id === 6);
-    if (!hasEv6) {
-      parsed = [initialEvents[0], ...parsed];
-    } else {
-      parsed = parsed.map((ev: any) => (ev.id === 6 ? initialEvents[0] : ev));
-    }
+    
+    // Ensure all initialEvents exist in parsed (in case we add new ones manually)
+    initialEvents.forEach(initialEv => {
+      const exists = parsed.some((ev: any) => ev.id === initialEv.id);
+      if (!exists) {
+        parsed.push(initialEv);
+      } else if (initialEv.id === 6) {
+        // Keep the specific logic for event 6 if it existed before
+        parsed = parsed.map((ev: any) => (ev.id === 6 ? initialEvents.find(e => e.id === 6) || ev : ev));
+      }
+    });
+
     localStorage.setItem('shared_events', JSON.stringify(parsed));
     return parsed;
   }
