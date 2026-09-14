@@ -45,6 +45,12 @@ export default function HomePage() {
       title: 'SIH Hackathon & CSE Code Sprint',
       subtitle: 'National level hackathon & technical symposium',
       tag: 'Technical Event'
+    },
+    {
+      src: '/images/independence_day_celebration.png',
+      title: '80th Independence Day Grand Celebration',
+      subtitle: 'August 15 Flag Hoisting, NCC Parade & Cultural Fest at JNTU-GV Main Campus',
+      tag: 'National Event'
     }
   ];
 
