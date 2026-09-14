@@ -23,12 +23,6 @@ export default function HomePage() {
   // Official JNTU-GV Gallery Images for Auto-Rotating Carousel (5 Clean Official University Album Photos)
   const carouselImages = [
     {
-      src: '/images/independence_day_celebration.png',
-      title: '80th Independence Day Grand Celebration',
-      subtitle: 'August 15 Flag Hoisting, NCC Parade & Cultural Fest at JNTU-GV Main Campus',
-      tag: 'National Event'
-    },
-    {
       src: '/images/jntugv_convocation_ceremony.png',
       title: '1st Convocation Ceremony',
       subtitle: 'Jawaharlal Nehru Technological University Gurajada Vizianagaram',
