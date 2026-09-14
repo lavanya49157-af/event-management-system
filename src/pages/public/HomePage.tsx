@@ -29,12 +29,6 @@ export default function HomePage() {
       tag: 'Official University Event'
     },
     {
-      src: '/images/jntugv_main_campus.png',
-      title: 'JNTU-GV Vizianagaram Main Campus',
-      subtitle: 'Central University Administrative & Engineering Campus',
-      tag: 'Main Campus'
-    },
-    {
       src: '/images/jntugv_pharmacy_induction.png',
       title: 'College of Pharmaceutical Sciences Induction',
       subtitle: 'Welcome to B.Pharm Students at Academic Block-II',
