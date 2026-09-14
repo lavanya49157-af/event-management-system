@@ -10,7 +10,7 @@ export const initialEvents = [
     departmentCode: 'ADMIN',
     seats: '5000+',
     registered: 3840,
-    image: '/images/independence_day_celebration.png',
+    image: '/images/jntugv_independence_day_2026.png',
     tags: ['80th Independence Day', '15th August', 'Har Ghar Tiranga', 'Flag Hoisting', 'Patriotic Fest'],
     aboutDetails: 'Join JNTU-GV Vizianagaram in celebrating the grand 80th Independence Day on August 15th! The national flag will be hoisted by the Hon\'ble Vice-Chancellor followed by patriotic addresses, NCC parade, NSS sapling plantation drive, cultural performances by students, and national unity celebrations across the campus.',
     guidelines: [
